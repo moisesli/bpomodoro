@@ -78,4 +78,12 @@ class AuthController extends Controller
 
         return "Logeando...";
     }
+
+    public function perfil(){
+        return "Perfil";
+    }
+
+    public function logout(){
+        return "logout";
+    }
 }
