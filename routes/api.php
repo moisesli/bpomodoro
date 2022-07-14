@@ -22,9 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post("registro", [AuthController::class,"registro"]);
 Route::post("login", [AuthController::class, "login"]);
+Route::post("test",[AuthController::class, "test"]);
 
 
 Route::middleware('auth:sanctum')->group(function(){
-    Route::post("perfil",[AuthController::class, "perfil"]);
-    Route::post("logout", [AuthController::class, "logout"]);
+    Route::post("perfil",[AuthController::class,"perfil"]);
+    Route::post("logout",[AuthController::class,"logout"]);
 });

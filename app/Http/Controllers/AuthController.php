@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -77,13 +78,22 @@ class AuthController extends Controller
         }
 
         return "Logeando...";
+
     }
 
     public function perfil(){
-        return "Perfil";
+        return Auth::user();
     }
 
     public function logout(){
-        return "logout";
+        Auth::user()->tokens()->delete();
+        return response()->json([
+            "status" => 1,
+            "mensaje" => "se cerro session correctamente.!",           
+        ]);
+    }
+
+    public function test(){
+        return "test";
     }
 }
